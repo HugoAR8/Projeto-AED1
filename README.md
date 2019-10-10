@@ -1,2 +1,2 @@
 # Projeto-AED1
-Jogo RPG  de texto.
+Ainda pensando no que fazer.
