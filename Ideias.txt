@@ -1,0 +1,15 @@
+Timer para alarmar a hora de tomar a medicação
+Classes, paciente,medicação,medicador(pode ser o médico ou a caixa de medicamentos, qualquer coisa que avise qual medicação tomar e o horário.)
+Gets e sets de cada classe : 
+Paciente : 
+-getNecessidade(Para pegar qual medicamento ele precisa tomar).
+-getHorário(Para pegar qual o horário que ele precisa tomar o medicamento).
+-get...(ainda a pensar)
+Medicamento:
+-getTipo(Pega o tipo ao qual o medicamento pertence).
+-getValidade(Pega a data de validade do medicamento).
+-getHorário(Pega a hora em que determinado medicamento foi tomado).
+Medico:
+-getNewHorario(Em caso de atraso ao tomar a medicação é necessário redefinir o horario dos proximos medicamentos).
+-getStatusDoPaciente(Verifica o status do paciente, caso ele esteja muito mal provavelmente serão necessárias mudanças nos tipos de medicamento, nos horários e etc).
+-get
