@@ -13,3 +13,4 @@ Medico:
 -getNewHorario(Em caso de atraso ao tomar a medicação é necessário redefinir o horario dos proximos medicamentos).
 -getStatusDoPaciente(Verifica o status do paciente, caso ele esteja muito mal provavelmente serão necessárias mudanças nos tipos de medicamento, nos horários e etc).
 -get
+-
