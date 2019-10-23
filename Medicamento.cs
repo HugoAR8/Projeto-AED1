@@ -10,8 +10,21 @@ class Medicamento {
 
 
 
- public Medicamento() {
+ public Medicamento(string n,string v) {
+   nome = n;
+   validade = v;
 
+
+ }
+
+ public setHorario(string h){
+   horario = h;
+
+ }
+
+ public string getNome(){
+   return nome;
+  
  }
 
 }

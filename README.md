@@ -1,3 +1,2 @@
 # Projeto-AED1
-
-Um sistema de medicação e consulta.
+Ainda pensando no que fazer.
