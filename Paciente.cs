@@ -1,4 +1,5 @@
 using System;
+namespace Sistema{
 
 class Paciente {
 
@@ -13,32 +14,46 @@ class Paciente {
 
  }
 
+ public void listarP() {
 
- public int setIdade(int i) {
+  }
+
+  public void adicionarP() {
+
+  }
+
+  public void excluirP() {
+
+  }
+
+  public void alterarP() {
+
+  }
+
+public void setIdade(int i) {
   this.idade = i;
  }
 
  public int getIdade() {
-  return this.idade;
+  return idade;
  }
 
-
- public int getPeso() {
-  return this.peso;
- }
-
-
- public int setPeso(int p) {
+ public void setPeso(double p) {
   this.peso = p;
  }
 
- public int getAltura() {
-  return this.altura;
+
+ public double getPeso() {
+  return peso;
  }
 
-
- public int setAltura(int a) {
+ public void setAltura(double a) {
   this.peso = a;
  }
 
+ public double getAltura() {
+  return altura;
+ }
+
+}
 }

@@ -1,4 +1,5 @@
 using System;
+namespace Sistema{
 
 class Medicamento {
 
@@ -13,14 +14,5 @@ class Medicamento {
 
  }
 
-
-  public int setHorario(int h) {
-  this.horario = h;
- }
-
- public int getHorario() {
-  return this.horario;
- }
-
-
+}
 }
