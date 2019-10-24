@@ -1,78 +1,48 @@
 using System;
-namespace Sistema{
+namespace Sistema {
 
-class Paciente {
+ class Paciente {
 
- private string nome;
- private int idade;
- private double peso;
- private double altura;
- private Medicamento medicamento;
- private Paciente[] paciente = new Paciente[20];
+  private string nome;
+  private int idade;
+  private double peso;
+  private double altura;
 
-
- public Paciente() {
-
- }
-
- public void listarP() {
-
-    Paciente p1 = new Paciente();
+  public Paciente() {
     
-
-    
-   
-
-
-
-
   }
 
-  public void adicionarP() {
 
+  public string getNome() {
+   return nome;
   }
 
-  public void excluirP() {
-
+  public void setNome(string n){
+    nome = n;
   }
 
-  public void alterarP() {
-
+  public int getIdade() {
+   return idade;
   }
-
   
-public void setNome(string n) {
-  this.nome = n;
+  public void setIdade(int i){
+    idade = i;
+  }
+
+  public double getPeso() {
+   return peso;
+  }
+
+  public void setPeso(double p){
+    peso = p;
+  }
+
+  public double getAltura() {
+   return altura;
+  }
+
+  public void setAltura(double a){
+    altura = a;
+  }
+
  }
-
- public string getNome() {
-  return nome;
- }
-
-public void setIdade(int i) {
-  this.idade = i;
- }
-
- public int getIdade() {
-  return idade;
- }
-
- public void setPeso(double p) {
-  this.peso = p;
- }
-
-
- public double getPeso() {
-  return peso;
- }
-
- public void setAltura(double a) {
-  this.peso = a;
- }
-
- public double getAltura() {
-  return altura;
- }
-
-}
-}
