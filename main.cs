@@ -18,11 +18,7 @@ class MainClass {
 
 
 
-    
-
-
-
-    Console.WriteLine(aux);
+  
 
 
     

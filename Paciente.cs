@@ -8,6 +8,7 @@ class Paciente {
  private double peso;
  private double altura;
  private Medicamento medicamento;
+ private Paciente[] paciente = new Paciente[20];
 
 
  public Paciente() {
@@ -15,6 +16,15 @@ class Paciente {
  }
 
  public void listarP() {
+
+    Paciente p1 = new Paciente();
+    
+
+    
+   
+
+
+
 
   }
 
@@ -29,6 +39,15 @@ class Paciente {
   public void alterarP() {
 
   }
+
+  
+public void setNome(string n) {
+  this.nome = n;
+ }
+
+ public string getNome() {
+  return nome;
+ }
 
 public void setIdade(int i) {
   this.idade = i;

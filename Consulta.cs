@@ -4,7 +4,7 @@ namespace Sistema{
 
 class Consulta {
 
- private string nomePaciente;
+ // Objeto Paciente private string nomePaciente;
  private DateTime data;
  private string horario;
 

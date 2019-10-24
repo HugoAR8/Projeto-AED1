@@ -17,7 +17,12 @@ class Medicamento {
 
  }
 
- public setHorario(string h){
+public Medicamento(){
+
+}
+
+
+ public void setHorario(string h){
    horario = h;
 
  }
