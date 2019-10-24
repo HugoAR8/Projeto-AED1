@@ -4,40 +4,17 @@ namespace Sistema{
 
 class Consulta {
 
- // Objeto Paciente private string nomePaciente;
+ private Paciente paciente = new Paciente();
  private DateTime data;
  private string horario;
 
 
-
-
- public Consulta() {
-
+  public void setPaciente(Paciente p) {
+  this.paciente = p;
  }
 
- public void listarC() {
-   
-
-  }
-
-  public void adicionarC() {
-
-  }
-
-  public void excluirC() {
-
-  }
-
-  public void alterarC() {
-
-  }
-
-  public void setNomePaciente(string n) {
-  this.nomePaciente = n;
- }
-
- public string getNomePaciente() {
-  return nomePaciente;
+ public Paciente getPaciente() {
+  return paciente;
  }
 
  public void setData(DateTime d) {

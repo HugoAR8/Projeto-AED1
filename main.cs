@@ -8,12 +8,20 @@ class MainClass {
 
     Console.WriteLine("Pacientes");
     Console.WriteLine("Consultas");
+    Console.WriteLine("Médicos");
 
     aux = (Console.ReadLine());
 
     if(aux == "Pacientes"){
-     Paciente p = new Paciente();
-     p.listarP();
+    Console.Clear();  
+    Console.WriteLine("Listar");
+    Console.WriteLine("Buscar");
+    aux = (Console.ReadLine());
+    Console.Clear();
+      Console.WriteLine("Editar");
+      Console.WriteLine("Excluir");
+      aux = (Console.ReadLine());
+
     }
 
 
