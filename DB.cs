@@ -97,10 +97,14 @@ namespace Sistema {
 
   }
 
-  public void excluirPaciente() {
-
-
-  }
+   public void excluirPaciente(string n) {
+   // Resetando os atributos do paciente, assim da pra depois cadastrar outro por cima.
+   for(int i = 0; i < pacientes.Length; i++){
+     if(pacientes[i].getNome() == n){
+       pacientes[i] = null;
+     }
+   }
+ }
 
   public void editarPaciente() {
 

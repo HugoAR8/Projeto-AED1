@@ -54,8 +54,11 @@ namespace Sistema {
 
        } else {
         if (aux == "Excluir") {
-         Console.Clear();
-         db.excluirPaciente();
+          Console.WriteLine("Que paciente deseja excluir ?(Digite o nome dele)");
+          string aux2 = Console.ReadLine();
+          Console.Clear();
+          db.excluirPaciente(aux2);
+          menu();
 
         } else {
          menu();
@@ -98,8 +101,11 @@ namespace Sistema {
 
         } else {
          if (aux == "Excluir") {
+          Console.WriteLine("Que paciente deseja excluir ?(Digite o nome dele)");
+          string aux2 = Console.ReadLine();
           Console.Clear();
-          db.excluirPaciente();
+          db.excluirPaciente(aux2);
+          menu();
 
          } else {
           menu();
