@@ -11,6 +11,12 @@ namespace Sistema {
 
   //--------------- Bloco Pacientes
 
+  public void inicializarPacientes(){
+    for(int i = 0; i < pacientes.Length; i++){
+      pacientes[i] = new Paciente();
+    }
+  }
+
   public void listarPacientes() {
    Paciente aux = new Paciente();
    Console.Write("Lista de Pacientes:\n");
@@ -99,11 +105,13 @@ namespace Sistema {
 
    public void excluirPaciente(string n) {
    // Resetando os atributos do paciente, assim da pra depois cadastrar outro por cima.
-   for(int i = 0; i < pacientes.Length; i++){
+   /*for(int i = 0; i < pacientes.Length; i++){
      if(pacientes[i].getNome() == n){
        pacientes[i] = null;
      }
    }
+   */
+   
  }
 
   public void editarPaciente() {
@@ -111,20 +119,28 @@ namespace Sistema {
   }
 
   public void cadastrarPaciente() {
-   for (int i = 0; i < pacientes.Length; i++) {
-    Console.WriteLine("Escreva o nome do paciente {0}", i + 1);
-    pacientes[i].setNome(Console.ReadLine());
+    
+    Paciente aux = new Paciente();
 
-    Console.WriteLine("Escreva a idade do paciente {0}", i + 1);
-    pacientes[i].setIdade(int.Parse(Console.ReadLine()));
+    Console.WriteLine("Escreva o nome do paciente: ");
+    aux.setNome(Console.ReadLine());
 
-    Console.WriteLine("Escreva a altura do paciente {0}", i + 1);
-    pacientes[i].setAltura(double.Parse(Console.ReadLine()));
+    Console.WriteLine("Escreva a idade do paciente: ");
+    aux.setIdade(int.Parse(Console.ReadLine()));
 
+    Console.WriteLine("Escreva a altura do paciente: ");
+    aux.setAltura(double.Parse(Console.ReadLine()));
 
-    Console.WriteLine("Escreva o peso do paciente {0}", i + 1);
-    pacientes[i].setPeso(double.Parse(Console.ReadLine()));
-   }
+    Console.WriteLine("Escreva o peso do paciente: ");
+    aux.setPeso(double.Parse(Console.ReadLine()));
+
+    for (int i = 0; i < pacientes.Length; i++){
+     if(pacientes[i] == null){
+      pacientes[i] = aux;
+     }
+    }
+
+   
   }
 
 

@@ -4,6 +4,7 @@ namespace Sistema {
  class MainClass {
   public static void Main(string[] args) {
 
+   
    menu();
 
   }
@@ -13,6 +14,8 @@ namespace Sistema {
    DB db = new DB();
    Console.Clear();
    art();
+
+   db.inicializarPacientes();
 
    Console.WriteLine("Pacientes");
    Console.WriteLine("Consultas");
@@ -33,6 +36,7 @@ namespace Sistema {
     if (aux == "Cadastrar") {
      Console.Clear();
      db.cadastrarPaciente();
+     menu();
 
     } else {
      if (aux == "Listar") {
