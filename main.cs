@@ -42,7 +42,10 @@ namespace Sistema {
      } else {
       if (aux == "Buscar") {
        Console.Clear();
-       // db.buscarPaciente(0);
+       Console.WriteLine("Escreva o nome do Paciente: ");
+       string buscarPaciente = Console.ReadLine();
+       db.buscarPaciente(buscarPaciente);
+       Console.WriteLine("\n");
 
       } else {
        if (aux == "Editar") {
