@@ -13,6 +13,7 @@ namespace Sistema {
       
     }
 
+    // Horários disponíveis do médico em questão.
     public void setHorarios(string h1, string h2, string h3, string h4, string h5){
       horarios[0] = h1;
       horarios[1] = h2;
@@ -26,8 +27,6 @@ namespace Sistema {
         Console.WriteLine(horarios[i]);
       }
     }
-
-
 
     
   }

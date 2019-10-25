@@ -3,17 +3,23 @@ namespace Sistema{
 
 class MainClass {
   public static void Main (string[] args) {
+    DB db = new DB();
     Console.Clear();
     string aux;
 
     Console.WriteLine("Pacientes");
     Console.WriteLine("Consultas");
     Console.WriteLine("Médicos");
+    
 
     aux = (Console.ReadLine());
 
     if(aux == "Pacientes"){
     Console.Clear();  
+
+    Console.WriteLine("Cadastre os pacientes");
+    db.cadastrarPacientes();
+
     Console.WriteLine("Listar");
     Console.WriteLine("Buscar");
     aux = (Console.ReadLine());

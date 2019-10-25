@@ -9,7 +9,6 @@ namespace Sistema {
   private double altura;
 
   public Paciente() {
-    
   }
 
 
@@ -45,4 +44,5 @@ namespace Sistema {
     altura = a;
   }
 
+ }
  }
