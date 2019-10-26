@@ -4,12 +4,12 @@ namespace Sistema{
 
 class Consulta {
 
- private Paciente paciente = new Paciente();
- private DateTime data;
+ private string paciente;
+ private string data;
  private string horario;
 
 
-  public void setPaciente(Paciente p) {
+  public void setPaciente(string p) {
   this.paciente = p;
  }
 
@@ -17,12 +17,12 @@ class Consulta {
   return paciente;
  }
 
- public void setData(DateTime d) {
+ public void setData(string d) {
   this.data = d;
  }
 
 
- public DateTime getData() {
+ public string getData() {
   return data;
  }
 

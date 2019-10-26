@@ -117,15 +117,21 @@ public void editarPaciente(string nome) {
 
   public void marcarConsulta() {
     Consulta aux = new Consulta();
+    Paciente pacienteX = new Paciente();
 
     Console.WriteLine("Digite a data da consulta.");
-    aux.setData(DateTime.Parse(Console.ReadLine()));
+    aux.setData(Console.ReadLine());
     Console.WriteLine("Digite o nome do paciente.");
     string auxN = Console.ReadLine();
     for(int i = 0; i < pacientes.Length; i ++){
       if(pacientes[i].getNome() == auxN){
-        aux.setPaciente(pacientes[i]);
+        pacienteX = pacientes[i];
+        aux.setPaciente(pacienteX);
       }
+    }
+    
+    Console.WriteLine("Digite o horário da consulta.");
+    aux.setHorario(Console.ReadLine());
     }
 
   }
