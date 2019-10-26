@@ -4,12 +4,12 @@ namespace Sistema{
 
 class Consulta {
 
- private string paciente;
+ private Paciente paciente = new Paciente();
  private string data;
  private string horario;
 
 
-  public void setPaciente(string p) {
+  public void setPaciente(Paciente p) {
   this.paciente = p;
  }
 

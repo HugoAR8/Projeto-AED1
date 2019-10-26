@@ -48,11 +48,11 @@ namespace Sistema {
       Console.Clear();
       db.listarPacientes();
       Console.WriteLine("Menu");
-       string i = "";
-       while (i != "Menu") {
-        i = Console.ReadLine();
-       }
-       menu(db);
+      string i = "";
+      while (i != "Menu") {
+       i = Console.ReadLine();
+      }
+      menu(db);
 
      } else {
       if (aux == "Buscar") {
@@ -158,10 +158,10 @@ namespace Sistema {
         Console.Clear();
         db.listarMedicos();
         Console.WriteLine("Menu");
-       string i = "";
-       while (i != "Menu") {
-        i = Console.ReadLine();
-       }
+        string i = "";
+        while (i != "Menu") {
+         i = Console.ReadLine();
+        }
         menu(db);
 
        } else {
@@ -171,9 +171,9 @@ namespace Sistema {
          string auxN = Console.ReadLine();
          db.buscarMedico(auxN);
          string i = "";
-        while (i != "Menu") {
-         i = Console.ReadLine();
-        }
+         while (i != "Menu") {
+          i = Console.ReadLine();
+         }
          menu(db);
 
 
