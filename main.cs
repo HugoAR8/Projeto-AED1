@@ -1,21 +1,26 @@
 using System;
+
 namespace Sistema {
 
- class MainClass {
-  public static void Main(string[] args) {
 
-   
-   menu();
+ class MainClass {
+
+
+  public static void Main() {
+   DB db = new DB();
+
+   menu(db);
 
   }
 
-  public static void menu() {
-   string aux;
+  public static void menu(DB data) {
    DB db = new DB();
+   db = data;
+   string aux;
+
+
    Console.Clear();
    art();
-
-   db.inicializarPacientes();
 
    Console.WriteLine("Pacientes");
    Console.WriteLine("Consultas");
@@ -36,7 +41,8 @@ namespace Sistema {
     if (aux == "Cadastrar") {
      Console.Clear();
      db.cadastrarPaciente();
-     menu();
+     menu(db);
+
 
     } else {
      if (aux == "Listar") {
@@ -47,25 +53,26 @@ namespace Sistema {
       if (aux == "Buscar") {
        Console.Clear();
        Console.WriteLine("Escreva o nome do Paciente: ");
-       string buscarPaciente = Console.ReadLine();
-       db.buscarPaciente(buscarPaciente);
+       string paciente = Console.ReadLine();
+       db.buscarPaciente(paciente);
        Console.WriteLine("\n");
 
       } else {
        if (aux == "Editar") {
         Console.Clear();
-        db.editarPaciente();
+        Console.WriteLine("Nome do Paciente: ");
+        string editarPaciente = Console.ReadLine();
+        db.editarPaciente(editarPaciente);
+        menu(db);
 
        } else {
         if (aux == "Excluir") {
-          Console.WriteLine("Que paciente deseja excluir ?(Digite o nome dele)");
-          string aux2 = Console.ReadLine();
-          Console.Clear();
-          db.excluirPaciente(aux2);
-          menu();
+         Console.Clear();
+         db.excluirPaciente();
+         menu(db);
 
         } else {
-         menu();
+         menu(db);
         }
 
        }
@@ -101,18 +108,15 @@ namespace Sistema {
        } else {
         if (aux == "Editar") {
          Console.Clear();
-         db.editarPaciente();
+         // db.editarPaciente();
 
         } else {
          if (aux == "Excluir") {
-          Console.WriteLine("Que paciente deseja excluir ?(Digite o nome dele)");
-          string aux2 = Console.ReadLine();
           Console.Clear();
-          db.excluirPaciente(aux2);
-          menu();
+          db.excluirPaciente();
 
          } else {
-          menu();
+          menu(db);
          }
 
         }
@@ -156,7 +160,7 @@ namespace Sistema {
            //db.excluirMedico();
 
           } else {
-           menu();
+           menu(db);
           }
          }
         }
@@ -169,7 +173,7 @@ namespace Sistema {
 
     }
 
-    menu();
+    menu(db);
 
    }
   }
