@@ -48,6 +48,12 @@ namespace Sistema {
      if (aux == "Listar") {
       Console.Clear();
       db.listarPacientes();
+      Console.WriteLine("Menu");
+       string i = "";
+       while (i != "Menu") {
+        i = Console.ReadLine();
+       }
+       menu(db);
 
      } else {
       if (aux == "Buscar") {
@@ -56,6 +62,14 @@ namespace Sistema {
        string paciente = Console.ReadLine();
        db.buscarPaciente(paciente);
        Console.WriteLine("\n");
+       Console.WriteLine("Menu");
+
+       //--- escape
+       string i = "";
+       while (i != "Menu") {
+        i = Console.ReadLine();
+       }
+       menu(db);
 
       } else {
        if (aux == "Editar") {
@@ -68,7 +82,7 @@ namespace Sistema {
        } else {
         if (aux == "Excluir") {
          Console.Clear();
-         db.excluirPaciente();
+         //db.excluirPaciente();
          menu(db);
 
         } else {
@@ -98,7 +112,7 @@ namespace Sistema {
      } else {
       if (aux == "Listar") {
        Console.Clear();
-       db.listarPacientes();
+       db.listarConsultas();
 
       } else {
        if (aux == "Buscar") {
@@ -113,7 +127,7 @@ namespace Sistema {
         } else {
          if (aux == "Excluir") {
           Console.Clear();
-          db.excluirPaciente();
+          //db.excluirPaciente();
 
          } else {
           menu(db);
