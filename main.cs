@@ -8,7 +8,6 @@ namespace Sistema {
 
   public static void Main() {
    DB db = new DB();
-
    menu(db);
 
   }
@@ -151,27 +150,47 @@ namespace Sistema {
 
       if (aux == "Cadastrar") {
        Console.Clear();
-       // db.cadastrarMedico();
+       db.cadastrarMedico();
+       menu(db);
 
       } else {
        if (aux == "Listar") {
         Console.Clear();
-        // db.listarMedicos();
+        db.listarMedicos();
+        Console.WriteLine("Menu");
+       string i = "";
+       while (i != "Menu") {
+        i = Console.ReadLine();
+       }
+        menu(db);
 
        } else {
         if (aux == "Buscar") {
          Console.Clear();
-         //  db.buscarMedico();
+         Console.WriteLine("Digite o nome do médico que procura.");
+         string auxN = Console.ReadLine();
+         db.buscarMedico(auxN);
+         string i = "";
+        while (i != "Menu") {
+         i = Console.ReadLine();
+        }
+         menu(db);
+
 
         } else {
          if (aux == "Editar") {
           Console.Clear();
-          // db.editarMedico();
+          Console.WriteLine("Digite o nome do médico que procura.");
+          string auxN = Console.ReadLine();
+          db.editarMedico(auxN);
+          menu(db);
 
          } else {
           if (aux == "Excluir") {
            Console.Clear();
-           //db.excluirMedico();
+           Console.WriteLine("Digite o nome do médico que deseja excluir");
+           db.excluirMedico(Console.ReadLine());
+           menu(db);
 
           } else {
            menu(db);

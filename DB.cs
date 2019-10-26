@@ -3,6 +3,7 @@ namespace Sistema {
  class DB {
   private Paciente[] pacientes = new Paciente[20];
   private Consulta[] consultas = new Consulta[20];
+  private Medico[] medicos = new Medico[20];
 
   public DB() {
 
@@ -10,12 +11,6 @@ namespace Sistema {
 
 
   //--------------- Bloco Pacientes
-
-  public void inicializarPacientes(){
-    for(int i = 0; i < pacientes.Length; i++){
-      pacientes[i] = new Paciente();
-    }
-  }
 
   public void listarPacientes() {
    Paciente aux = new Paciente();
@@ -35,12 +30,8 @@ namespace Sistema {
   public void buscarPaciente(string nome) {
     Paciente aux = new Paciente();
 
-  
-
    for (int i = 0; i < pacientes.Length; i++) {
-    
     aux = pacientes[i];
-
 
     if (String.Equals(aux.getNome(), nome)) {
      Console.Clear();
@@ -62,14 +53,11 @@ namespace Sistema {
   }
 
    public void excluirPaciente(string n) {
-   // Resetando os atributos do paciente, assim da pra depois cadastrar outro por cima.
-   /*for(int i = 0; i < pacientes.Length; i++){
+   for(int i = 0; i < pacientes.Length; i++){
      if(pacientes[i].getNome() == n){
        pacientes[i] = null;
      }
    }
-   */
-   
  }
 
 public void editarPaciente(string nome) {
@@ -128,6 +116,17 @@ public void editarPaciente(string nome) {
   //------------------ Bloco Consulta 
 
   public void marcarConsulta() {
+    Consulta aux = new Consulta();
+
+    Console.WriteLine("Digite a data da consulta.");
+    aux.setData(DateTime.Parse(Console.ReadLine()));
+    Console.WriteLine("Digite o nome do paciente.");
+    string auxN = Console.ReadLine();
+    for(int i = 0; i < pacientes.Length; i ++){
+      if(pacientes[i].getNome() == auxN){
+        aux.setPaciente(pacientes[i]);
+      }
+    }
 
   }
 
@@ -153,5 +152,109 @@ public void editarPaciente(string nome) {
   }
 
 
+
+  //------------------ Bloco Medico
+
+  public void inicializarMedicos(){
+    for(int i = 0; i < medicos.Length; i++){
+      medicos[i] = new Medico();
+    }
+  }
+
+  public void cadastrarMedico(){
+    Medico aux = new Medico();
+
+    Console.WriteLine("Escreva o nome do medico.");
+    aux.setNome(Console.ReadLine());
+    Console.WriteLine("Escreva a especializacao do medico.");
+    aux.setEspecializacao(Console.ReadLine());
+    for(int i = 0; i < aux.horarios.Length; i ++){
+      Console.WriteLine("Digite o {0}° horário disponivel do médico.",i+1);
+      string auxH = Console.ReadLine();
+      aux.setHorario(auxH,i);
+
+    }
+
+      for (int u = 0; u < medicos.Length; u++) {
+
+      if (medicos[u] == null) {
+       medicos[u] = aux;
+       break;
+
+     }
+   }
+  }
+
+  public void excluirMedico(string n) {
+   for(int i = 0; i < medicos.Length; i++){
+     if(medicos[i].getNome() == n){
+       medicos[i] = null;
+     }
+   }
+ }
+
+  public void listarMedicos() {
+   Medico aux = new Medico();
+   Console.Write("Lista de Medicos:\n");
+   Console.Write("\n");
+
+   for (int i = 0; i < medicos.Length; i++) {
+    if (medicos[i] != null) {
+     aux = medicos[i];
+     Console.Write(aux.getNome());
+     Console.Write("\n");
+    }
+   }
+  }
+
+  public void buscarMedico(string nome) {
+    Medico aux = new Medico();
+
+   for (int i = 0; i < medicos.Length; i++) {
+    aux = medicos[i];
+
+    if (String.Equals(aux.getNome(), nome)) {
+     Console.Clear();
+     Console.Write("Nome: {0}", aux.getNome());
+     Console.Write("\n");
+     Console.Write("Especialização: {0}", aux.getEspecializacao());
+     Console.Write("\n");
+     Console.WriteLine("Horarios :\n ");
+     for(int u = 0; u < aux.horarios.Length; u ++){
+       Console.WriteLine(aux.horarios[u]);
+       
+     }
+
+     break;
+
+   }
+    Console.Write("false");
+
+   }
+  }
+  public void editarMedico(string nome) {
+   Medico aux = new Medico();
+
+   for (int i = 0; i < pacientes.Length; i++) {
+    aux = medicos[i];
+
+    if (medicos[i] != null) {
+
+     if (String.Equals(aux.getNome(), nome)) {
+      Console.WriteLine("Editar nome do médico: ");
+      aux.setNome(Console.ReadLine());
+      Console.WriteLine("Editar especialização do médico: ");
+      aux.setEspecializacao(Console.ReadLine());
+      medicos[i] = aux;
+      Console.WriteLine("Editar horarios do médico:");
+      for(int x = 0; x < aux.horarios.Length; x ++){
+        Console.WriteLine("Edite o {0} horario do medico", x+1);
+        aux.horarios[x] = Console.ReadLine();
+      }
+      break;
+     }
+    }
+   }
+  }
  }
 }
