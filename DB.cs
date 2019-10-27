@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 namespace Sistema {
  class DB {
   private Paciente[] pacientes = new Paciente[20];
@@ -98,8 +99,10 @@ namespace Sistema {
 
   }
 
-  public void cadastrarPaciente() {
-   Paciente aux = new Paciente();
+  
+
+    public void cadastrarPaciente() {
+    Paciente aux = new Paciente();
 
    Console.WriteLine("Escreva o nome do paciente: ");
    aux.setNome(Console.ReadLine());
@@ -118,6 +121,18 @@ namespace Sistema {
 
     }
    }
+  }
+
+  public void salvarBackup(){
+    StreamWriter saida;
+        saida = File.AppendText("Backup.txt");
+        for(int x=0;x < pacientes.Length;x++)
+        {
+          if(pacientes[x] != null){
+            saida.WriteLine("Paciente numero {0}\nNome do paciente: {1} \nIdade do paciente: {2}\nPeso do paciente: {3}\nAltura do paciente: {4}",x+1, pacientes[x].getNome(),pacientes[x].getIdade(),pacientes[x].getPeso(), pacientes[x].getAltura());
+          }
+        }
+        saida.Close();
   }
 
 

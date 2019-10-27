@@ -40,6 +40,7 @@ namespace Sistema {
     if (aux == "Cadastrar") {
      Console.Clear();
      db.cadastrarPaciente();
+     db.salvarBackup();
      menu(db);
 
 
@@ -76,6 +77,7 @@ namespace Sistema {
         Console.WriteLine("Nome do Paciente: ");
         string editarPaciente = Console.ReadLine();
         db.editarPaciente(editarPaciente);
+        db.salvarBackup();
         menu(db);
 
        } else {
@@ -85,6 +87,7 @@ namespace Sistema {
          string excluirPaciente = Console.ReadLine();
          db.excluirPaciente(excluirPaciente);
          menu(db);
+         db.salvarBackup();
 
         } else {
          menu(db);
