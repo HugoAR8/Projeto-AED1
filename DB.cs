@@ -47,7 +47,7 @@ namespace Sistema {
      break;
 
     }
-    Console.Write("false");
+
 
    }
 
@@ -99,10 +99,10 @@ namespace Sistema {
 
   }
 
-  
 
-    public void cadastrarPaciente() {
-    Paciente aux = new Paciente();
+
+  public void cadastrarPaciente() {
+   Paciente aux = new Paciente();
 
    Console.WriteLine("Escreva o nome do paciente: ");
    aux.setNome(Console.ReadLine());
@@ -123,16 +123,15 @@ namespace Sistema {
    }
   }
 
-  public void salvarBackup(){
-    StreamWriter saida;
-        saida = File.AppendText("Backup.txt");
-        for(int x=0;x < pacientes.Length;x++)
-        {
-          if(pacientes[x] != null){
-            saida.WriteLine("Paciente numero {0}\nNome do paciente: {1} \nIdade do paciente: {2}\nPeso do paciente: {3}\nAltura do paciente: {4}",x+1, pacientes[x].getNome(),pacientes[x].getIdade(),pacientes[x].getPeso(), pacientes[x].getAltura());
-          }
-        }
-        saida.Close();
+  public void salvarBackup() {
+   StreamWriter saida;
+   saida = File.AppendText("Backup.txt");
+   for (int x = 0; x < pacientes.Length; x++) {
+    if (pacientes[x] != null) {
+     saida.WriteLine("Paciente numero {0}\nNome do paciente: {1} \nIdade do paciente: {2}\nPeso do paciente: {3}\nAltura do paciente: {4}", x + 1, pacientes[x].getNome(), pacientes[x].getIdade(), pacientes[x].getPeso(), pacientes[x].getAltura());
+    }
+   }
+   saida.Close();
   }
 
 
@@ -149,12 +148,12 @@ namespace Sistema {
    string aux = Console.ReadLine();
    Console.WriteLine("Digite a data da consulta: ");
    c.setData(Console.ReadLine());
-      Console.WriteLine("Digite a hora da consulta: ");
+   Console.WriteLine("Digite a hora da consulta: ");
    c.setHorario(Console.ReadLine());
-       Console.WriteLine("Médico responsável: ");
+   Console.WriteLine("Médico responsável: ");
    string aux2 = (Console.ReadLine());
 
-    for (int i = 0; i < medicos.Length; i++) {
+   for (int i = 0; i < medicos.Length; i++) {
     if (medicos[i] != null) {
      m = medicos[i];
      if (String.Equals(p.getNome(), aux2)) {
@@ -196,13 +195,14 @@ namespace Sistema {
     if (consultas[i] != null) {
      c = consultas[i];
      p = c.getPaciente();
-     Console.Write("Nome do Paciente: {0}",p.getNome());
+     Console.Write("Nome do Paciente: {0}", p.getNome());
      Console.Write("\n");
-     Console.Write("Data: {0}",c.getData());
+     Console.Write("Data: {0}", c.getData());
      Console.Write("\n");
-     Console.Write("Horário: {0}",c.getHorario());
+     Console.Write("Horário: {0}", c.getHorario());
      Console.Write("\n");
-     Console.Write("Médico Responsável: {0}",c.getMedico());
+     Console.Write("Médico Responsável: {0}", c.getMedico());
+     Console.Write("\n");
      Console.Write("\n");
     }
    }
@@ -295,8 +295,10 @@ namespace Sistema {
 
   public void excluirMedico(string n) {
    for (int i = 0; i < medicos.Length; i++) {
-    if (medicos[i].getNome() == n) {
-     medicos[i] = null;
+    if (medicos[i] != null) {
+     if (medicos[i].getNome() == n) {
+      medicos[i] = null;
+     }
     }
    }
   }
@@ -320,24 +322,23 @@ namespace Sistema {
 
    for (int i = 0; i < medicos.Length; i++) {
     aux = medicos[i];
+    if (medicos[i] != null) {
 
-    if (String.Equals(aux.getNome(), nome)) {
-     Console.Clear();
-     Console.Write("Nome: {0}", aux.getNome());
-     Console.Write("\n");
-     Console.Write("Especialização: {0}", aux.getEspecializacao());
-     Console.Write("\n");
-     Console.WriteLine("Horarios :\n ");
+     if (String.Equals(aux.getNome(), nome)) {
+      Console.Clear();
+      Console.Write("Nome: {0}", aux.getNome());
+      Console.Write("\n");
+      Console.Write("Especialização: {0}", aux.getEspecializacao());
+      Console.Write("\n");
+      Console.WriteLine("Horarios :\n ");
 
-     for (int u = 0; u < aux.horarios.Length; u++) {
-      Console.WriteLine(aux.horarios[u]);
+      for (int u = 0; u < aux.horarios.Length; u++) {
+       Console.WriteLine(aux.horarios[u]);
+      }
+
+      break;
      }
-
-     break;
     }
-
-    Console.Write("false");
-
    }
   }
 

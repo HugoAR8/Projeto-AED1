@@ -203,6 +203,7 @@ namespace Sistema {
          Console.WriteLine("Digite o nome do médico que procura.");
          string auxN = Console.ReadLine();
          db.buscarMedico(auxN);
+         Console.WriteLine("Menu");
          string i = "";
          while (i != "Menu") {
           i = Console.ReadLine();
