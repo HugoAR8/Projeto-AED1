@@ -26,16 +26,16 @@ namespace Sistema {
       nome = n;
     }
 
-    // Horários disponíveis do médico em questão.
+     //Horários disponíveis do médico em questão.
     public void setHorario(string h,int i){
      horarios[i] = h;
     }
 
     public void imprimirHorarios(){
-      for(int i = 0; i < horarios.Length; i++){
-        Console.WriteLine(horarios[i]);
+     for(int i = 0; i < horarios.Length; i++){
+       Console.WriteLine(horarios[i]);
       }
-    }
+   }
 
     
   }

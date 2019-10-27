@@ -81,7 +81,9 @@ namespace Sistema {
        } else {
         if (aux == "Excluir") {
          Console.Clear();
-         //db.excluirPaciente();
+         Console.WriteLine("Nome do Paciente: ");
+         string excluirPaciente = Console.ReadLine();
+         db.excluirPaciente(excluirPaciente);
          menu(db);
 
         } else {
@@ -95,47 +97,75 @@ namespace Sistema {
 
    } else {
     if (aux == "Consultas") {
-     Console.Clear();
-     Console.WriteLine("Marcar");
-     Console.WriteLine("Listar");
-     Console.WriteLine("Buscar");
-     Console.WriteLine("Editar");
-     Console.WriteLine("Excluir");
-     Console.WriteLine("Menu");
-     aux = (Console.ReadLine());
+    Console.Clear();
+    Console.WriteLine("Marcar");
+    Console.WriteLine("Listar");
+    Console.WriteLine("Buscar");
+    Console.WriteLine("Editar");
+    Console.WriteLine("Excluir");
+    Console.WriteLine("Menu");
 
-     if (aux == "Marcar") {
+    aux = (Console.ReadLine());
+
+    if (aux == "Marcar") {
+     Console.Clear();
+     db.marcarConsulta();
+     menu(db);
+
+
+    } else {
+     if (aux == "Listar") {
       Console.Clear();
-      db.marcarConsulta();
+      db.listarConsultas();
+      Console.Write("\n");
+      Console.WriteLine("Menu");
+      //--- escape
+      string i = "";
+      while (i != "Menu") {
+       i = Console.ReadLine();
+       break;
+      }
+      menu(db);
 
      } else {
-      if (aux == "Listar") {
+      if (aux == "Buscar") {
        Console.Clear();
-       db.listarConsultas();
+       db.buscarConsulta();
+       Console.WriteLine("\n");
+       Console.WriteLine("Menu");
+
+       //--- escape
+       string i = "";
+       while (i != "Menu") {
+        i = Console.ReadLine();
+       }
+       menu(db);
 
       } else {
-       if (aux == "Buscar") {
+       if (aux == "Editar") {
         Console.Clear();
-        //db.buscarPaciente();
+        Console.WriteLine("Nome do Paciente: ");
+        string editarPaciente = Console.ReadLine();
+        db.editarPaciente(editarPaciente);
+        menu(db);
 
        } else {
-        if (aux == "Editar") {
+        if (aux == "Excluir") {
          Console.Clear();
-         // db.editarPaciente();
+         Console.WriteLine("Nome do Paciente: ");
+         string excluirPaciente = Console.ReadLine();
+         db.excluirPaciente(excluirPaciente);
+         menu(db);
 
         } else {
-         if (aux == "Excluir") {
-          Console.Clear();
-          //db.excluirPaciente();
-
-         } else {
-          menu(db);
-         }
-
+         menu(db);
         }
+
        }
       }
      }
+    }
+
 
     } else {
      if (aux == "Médicos") {

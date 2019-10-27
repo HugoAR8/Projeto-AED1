@@ -53,11 +53,21 @@ namespace Sistema {
   }
 
   public void excluirPaciente(string n) {
+
    for (int i = 0; i < pacientes.Length; i++) {
-    if (pacientes[i].getNome() == n) {
-     pacientes[i] = null;
+    Paciente aux = new Paciente();
+    aux = pacientes[i];
+
+    if (pacientes[i] != null) {
+
+     if (String.Equals(aux.getNome(), n)) {
+      pacientes[i] = null;
+      break;
+     }
     }
    }
+
+
   }
 
   public void editarPaciente(string nome) {
@@ -118,11 +128,27 @@ namespace Sistema {
   public void marcarConsulta() {
    Consulta c = new Consulta();
    Paciente p = new Paciente();
+   Medico m = new Medico();
 
-   Console.WriteLine("Digite a data da consulta.");
-   c.setData(Console.ReadLine());
-   Console.WriteLine("Digite o nome do paciente.");
+   Console.WriteLine("Digite o nome do paciente: ");
    string aux = Console.ReadLine();
+   Console.WriteLine("Digite a data da consulta: ");
+   c.setData(Console.ReadLine());
+      Console.WriteLine("Digite a hora da consulta: ");
+   c.setHorario(Console.ReadLine());
+       Console.WriteLine("Médico responsável: ");
+   string aux2 = (Console.ReadLine());
+
+    for (int i = 0; i < medicos.Length; i++) {
+    if (medicos[i] != null) {
+     m = medicos[i];
+     if (String.Equals(p.getNome(), aux2)) {
+      c.setMedico(m);
+      break;
+     }
+    }
+   }
+
 
    for (int i = 0; i < pacientes.Length; i++) {
     if (pacientes[i] != null) {
@@ -145,25 +171,72 @@ namespace Sistema {
 
   }
 
-
-
-
-
-
   public void listarConsultas() {
+   Consulta c = new Consulta();
+   Paciente p = new Paciente();
+   Console.Write("Consultas Marcadas:\n");
+   Console.Write("\n");
+
    for (int i = 0; i < consultas.Length; i++) {
-    Paciente p = consultas[i].getPaciente();
-    Console.WriteLine(p.getNome());
+    if (consultas[i] != null) {
+     c = consultas[i];
+     p = c.getPaciente();
+     Console.Write("Nome do Paciente: {0}",p.getNome());
+     Console.Write("\n");
+     Console.Write("Data: {0}",c.getData());
+     Console.Write("\n");
+     Console.Write("Horário: {0}",c.getHorario());
+     Console.Write("\n");
+     Console.Write("Médico Responsável: {0}",c.getMedico());
+     Console.Write("\n");
+    }
    }
   }
 
 
 
-  public Consulta buscarConsulta(int cod) {
-   return consultas[cod];
+  public void buscarConsulta() {
+   Consulta c = new Consulta();
+   Paciente p = new Paciente();
+   Console.Write("Nome do Paciente: ");
+   string aux = Console.ReadLine();
+
+   for (int i = 0; i < consultas.Length; i++) {
+    c = consultas[i];
+    p = c.getPaciente();
+    if (String.Equals(p.getNome(), aux)) {
+     Console.Clear();
+     Console.Write("Nome do Paciente: {0}", p.getNome());
+     Console.Write("\n");
+     Console.Write("Data: {0}", c.getData());
+     Console.Write("\n");
+     Console.Write("Horário: {0}", c.getHorario());
+     Console.Write("\n");
+     //Console.Write("Médico: {0}", c.getMedico());
+
+     break;
+
+    }
+
+   }
   }
 
   public void excluirConsulta() {
+   Consulta c = new Consulta();
+   Paciente p = new Paciente();
+   Console.Write("Nome do Paciente: ");
+   string aux = Console.ReadLine();
+
+   for (int i = 0; i < consultas.Length; i++) {
+    c = consultas[i];
+    p = c.getPaciente();
+    if (pacientes[i] != null) {
+     if (String.Equals(p.getNome(), aux)) {
+      consultas[i] = null;
+      break;
+     }
+    }
+   }
 
   }
 
@@ -240,18 +313,19 @@ namespace Sistema {
      Console.Write("Especialização: {0}", aux.getEspecializacao());
      Console.Write("\n");
      Console.WriteLine("Horarios :\n ");
+
      for (int u = 0; u < aux.horarios.Length; u++) {
       Console.WriteLine(aux.horarios[u]);
-
      }
 
      break;
-
     }
+
     Console.Write("false");
 
    }
   }
+
   public void editarMedico(string nome) {
    Medico aux = new Medico();
 
@@ -276,5 +350,6 @@ namespace Sistema {
     }
    }
   }
+
  }
 }
